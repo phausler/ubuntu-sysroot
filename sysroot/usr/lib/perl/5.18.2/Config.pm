@@ -85,7 +85,7 @@ sub AUTOLOAD {
 # tie returns the object, so the value returned to require will be true.
 tie %Config, 'Config', {
     archlibexp => '/usr/lib/perl/5.18',
-    archname => 'x86_64-linux-gnu-thread-multi',
+    archname => 'i686-linux-gnu-thread-multi-64int',
     cc => 'cc',
     d_readlink => 'define',
     d_symlink => 'define',
@@ -96,9 +96,9 @@ tie %Config, 'Config', {
     inc_version_list => '5.18.1',
     intsize => '4',
     ldlibpthname => 'LD_LIBRARY_PATH',
-    libpth => '/usr/local/lib /lib/x86_64-linux-gnu /lib/../lib /usr/lib/x86_64-linux-gnu /usr/lib/../lib /lib /usr/lib',
+    libpth => '/usr/local/lib /lib/i386-linux-gnu /lib/../lib /usr/lib/i386-linux-gnu /usr/lib/../lib /lib /usr/lib',
     osname => 'linux',
-    osvers => '3.2.0-58-generic',
+    osvers => '3.2.0-37-generic',
     path_sep => ':',
     privlibexp => '/usr/share/perl/5.18',
     scriptdir => '/usr/bin',

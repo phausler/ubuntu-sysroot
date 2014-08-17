@@ -9,9 +9,9 @@
 
 /* Package name      : perl5
  * Source directory  : .
- * Configuration time: Thu Mar 27 18:28:21 UTC 2014
+ * Configuration time: Thu Mar 27 18:25:33 UTC 2014
  * Configured by     : Debian Project
- * Target system     : linux brownie 3.2.0-58-generic #88-ubuntu smp tue dec 3 17:37:58 utc 2013 x86_64 x86_64 x86_64 gnulinux 
+ * Target system     : linux lamiak 3.2.0-37-generic #58-ubuntu smp thu jan 24 15:28:10 utc 2013 i686 i686 i686 gnulinux 
  */
 
 #ifndef _config_h_
@@ -890,7 +890,7 @@
  *	feature tests from Configure are generally more reliable.
  */
 #define OSNAME "linux"		/**/
-#define OSVERS "3.2.0-58-generic"		/**/
+#define OSVERS "3.2.0-37-generic"		/**/
 
 /* USE_CROSS_COMPILE:
  *	This symbol, if defined, indicates that Perl is being cross-compiled.
@@ -919,7 +919,7 @@
  *	4 and 8. The default is eight, for safety.  For cross-compiling
  *  	or multiarch support, Configure will set a minimum of 8.
  */
-#define MEM_ALIGNBYTES 8
+#define MEM_ALIGNBYTES 4
 
 /* ARCHLIB:
  *	This variable, if defined, holds the name of the directory in
@@ -943,7 +943,7 @@
  *	where library files may be held under a private library, for
  *	instance.
  */
-#define ARCHNAME "x86_64-linux-gnu-thread-multi"		/**/
+#define ARCHNAME "i686-linux-gnu-thread-multi-64int"		/**/
 
 /* BIN:
  *	This symbol holds the path of the bin directory where the package will
@@ -974,7 +974,7 @@
  *	preprocessor can make decisions based on it.
  */
 #define INTSIZE 4		/**/
-#define LONGSIZE 8		/**/
+#define LONGSIZE 4		/**/
 #define SHORTSIZE 2		/**/
 
 /* BYTEORDER:
@@ -1132,7 +1132,7 @@
  */
 #define HASATTRIBUTE_DEPRECATED	/**/
 #define HASATTRIBUTE_FORMAT	/**/
-/*#define PRINTF_FORMAT_NULL_OK	/ **/
+#define PRINTF_FORMAT_NULL_OK	/**/
 #define HASATTRIBUTE_NORETURN	/**/
 #define HASATTRIBUTE_MALLOC	/**/
 #define HASATTRIBUTE_NONNULL	/**/
@@ -1938,7 +1938,7 @@
  */
 #define HAS_LONG_DOUBLE		/**/
 #ifdef HAS_LONG_DOUBLE
-#define LONG_DOUBLESIZE 16		/**/
+#define LONG_DOUBLESIZE 12		/**/
 #endif
 
 /* HAS_LONG_LONG:
@@ -2695,7 +2695,7 @@
 /* Gid_t_f:
  *	This symbol defines the format string used for printing a Gid_t.
  */
-#define	Gid_t_f		"u"		/**/
+#define	Gid_t_f		"lu"		/**/
 
 /* Gid_t_sign:
  *	This symbol holds the signedness of a Gid_t.
@@ -3013,7 +3013,7 @@
  *	This symbol holds the type used for the 1st argument to
  *	getnetbyaddr().
  */
-#define Netdb_host_t		char * /**/
+#define Netdb_host_t		const void * /**/
 #define Netdb_hlen_t		size_t /**/
 #define Netdb_name_t		const char * /**/
 #define Netdb_net_t		in_addr_t /**/
@@ -3072,7 +3072,7 @@
  *	the compiler supports (void *); otherwise it will be
  *	sizeof(char *).
  */
-#define PTRSIZE 8		/**/
+#define PTRSIZE 4		/**/
 
 /* HAS_QUAD:
  *	This symbol, if defined, tells that there's a 64-bit integer type,
@@ -3082,9 +3082,9 @@
  */
 #define HAS_QUAD	/**/
 #ifdef HAS_QUAD
-#   define Quad_t long	/**/
-#   define Uquad_t unsigned long	/**/
-#   define QUADKIND 2	/**/
+#   define Quad_t long long	/**/
+#   define Uquad_t unsigned long long	/**/
+#   define QUADKIND 3	/**/
 #   define QUAD_IS_INT	1
 #   define QUAD_IS_LONG	2
 #   define QUAD_IS_LONG_LONG	3
@@ -3219,7 +3219,7 @@
 /* Size_t_size:
  *	This symbol holds the size of a Size_t in bytes.
  */
-#define Size_t_size 8		/**/
+#define Size_t_size 4		/**/
 
 /* Size_t:
  *	This symbol holds the type used to declare length parameters
@@ -3254,7 +3254,7 @@
 /* Uid_t_f:
  *	This symbol defines the format string used for printing a Uid_t.
  */
-#define	Uid_t_f		"u"		/**/
+#define	Uid_t_f		"lu"		/**/
 
 /* Uid_t_sign:
  *	This symbol holds the signedness of a Uid_t.
@@ -4416,7 +4416,7 @@
  *	of copying mechanisms, handy.h defines a platform-
  *	independent macro, Perl_va_copy(src, dst), to do the job.
  */
-#define	NEED_VA_COPY		/**/
+/*#define	NEED_VA_COPY		/ **/
 
 /* IVTYPE:
  *	This symbol defines the C type used for Perl's IV.
@@ -4502,17 +4502,17 @@
  *	This symbol, if defined, indicates that a variable of type NVTYPE
  *	stores 0.0 in memory as all bits zero.
  */
-#define	IVTYPE		long		/**/
-#define	UVTYPE		unsigned long		/**/
+#define	IVTYPE		long long		/**/
+#define	UVTYPE		unsigned long long		/**/
 #define	I8TYPE		signed char		/**/
 #define	U8TYPE		unsigned char		/**/
 #define	I16TYPE		short	/**/
 #define	U16TYPE		unsigned short	/**/
-#define	I32TYPE		int	/**/
-#define	U32TYPE		unsigned int	/**/
+#define	I32TYPE		long	/**/
+#define	U32TYPE		unsigned long	/**/
 #ifdef HAS_QUAD
-#define	I64TYPE		long	/**/
-#define	U64TYPE		unsigned long	/**/
+#define	I64TYPE		long long	/**/
+#define	U64TYPE		unsigned long long	/**/
 #endif
 #define	NVTYPE		double		/**/
 #define	IVSIZE		8		/**/
@@ -4578,11 +4578,11 @@
  *	This symbol defines the format string used for printing a Perl NV
  *	using %g-ish floating point format.
  */
-#define	IVdf		"ld"		/**/
-#define	UVuf		"lu"		/**/
-#define	UVof		"lo"		/**/
-#define	UVxf		"lx"		/**/
-#define	UVXf		"lX"		/**/
+#define	IVdf		"Ld"		/**/
+#define	UVuf		"Lu"		/**/
+#define	UVof		"Lo"		/**/
+#define	UVxf		"Lx"		/**/
+#define	UVXf		"LX"		/**/
 #define	NVef		"e"		/**/
 #define	NVff		"f"		/**/
 #define	NVgf		"g"		/**/
@@ -4594,7 +4594,7 @@
  *	is either n or 32*ceil(n/32), especially many little-endians do
  *	the latter.  This is only useful if you have select(), naturally.
  */
-#define SELECT_MIN_BITS 	64	/**/
+#define SELECT_MIN_BITS 	32	/**/
 
 /* ST_INO_SIZE:
  *	This variable contains the size of struct stat's st_ino in bytes.
@@ -4642,10 +4642,10 @@
  *	This symbol contains the minimum value for the time_t offset that
  *	the system function localtime () accepts, and defaults to 0
  */
-#define GMTIME_MAX		67768036191676799	/**/
-#define GMTIME_MIN		-62167219200	/**/
-#define LOCALTIME_MAX	67768036191676799	/**/
-#define LOCALTIME_MIN	-62167219200	/**/
+#define GMTIME_MAX		2147483647	/**/
+#define GMTIME_MIN		-2147483648	/**/
+#define LOCALTIME_MAX	2147483647	/**/
+#define LOCALTIME_MIN	-2147483648	/**/
 
 /* USE_64_BIT_INT:
  *	This symbol, if defined, indicates that 64-bit integers should
@@ -4669,7 +4669,7 @@
 #define	USE_64_BIT_INT		/**/
 #endif
 #ifndef USE_64_BIT_ALL
-#define	USE_64_BIT_ALL		/**/
+/*#define	USE_64_BIT_ALL		/ **/
 #endif
 
 /* USE_DTRACE:
